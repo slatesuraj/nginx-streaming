@@ -69,6 +69,7 @@ cp nginx.conf /usr/local/nginx/conf/nginx.conf
 
 apt install ffmpeg -y
 
+cd /tmp
 wget https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4
 mv file_example_MP4_1920_18MG.mp4 test.mp4
 
