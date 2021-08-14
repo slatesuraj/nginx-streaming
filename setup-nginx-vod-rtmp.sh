@@ -21,7 +21,7 @@ cd nginx-1.18.0
 make -j 1
 sudo make install
 
-cd /usr/local/nginx-streaming/conf
+cd /usr/local/nginx/conf
 mv nginx.conf nginx.cong.bkp
 
 echo "worker_processes  1;
@@ -50,8 +50,8 @@ rtmp {
  
 # HTTP can be used for accessing RTMP stats
 http {
-    access_log /var/log/nginx/access-streaming.log;
-    error_log /var/log/nginx/error-streaming.log;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
  
     server {
         # in case we have another web server on port 80
@@ -82,7 +82,10 @@ http {
     }
 }" > nginx.conf
 
-/usr/local/nginx-streaming/sbin/nginx
+mkdir -p /var/log/nginx
+mkdir -p /var/mp4s
+
+/usr/local/nginx/sbin/nginx
 
 echo "Save all mp4 files to /var/mp4s"
 echo "Time to play. Use rtmp://<IP_OF_THE_SERVER>:1935/vod2/sample.mp4 "
