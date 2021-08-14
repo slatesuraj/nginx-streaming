@@ -70,5 +70,9 @@ cp nginx.conf /usr/local/nginx/conf/nginx.conf
 apt install ffmpeg -y
 
 wget https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4
+mv file_example_MP4_1920_18MG.mp4 test.mp4
 
-ffmpeg  -re -stream_loop -1 -i test.mp4 -loop -1 -vcodec copy -c:a aac -b:a 160k -ar 44100 -flvflags no_duration_filesize -strict -2 -f flv rtmp://127.0.0.1/live/bbb
+nohup ffmpeg  -re -stream_loop -1 -i test.mp4 -loop -1 -vcodec copy -c:a aac -b:a 160k -ar 44100 -flvflags no_duration_filesize -strict -2 -f flv rtmp://127.0.0.1/live/bbb &
+
+echo "RTMP :: rtmp://NGINX_server/live/bbb"
+echo "DASH :: http://NGINX_server/bbb.mpd"
