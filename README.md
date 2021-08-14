@@ -1,1 +1,1 @@
-# nginx-rtmp
+# nginx-streaming
