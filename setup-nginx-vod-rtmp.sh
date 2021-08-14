@@ -24,7 +24,7 @@ sudo make install
 cd /usr/local/nginx-streaming/conf
 mv nginx.conf nginx.cong.bkp
 
-"worker_processes  1;
+echo "worker_processes  1;
  
 events {
     worker_connections  1024;
