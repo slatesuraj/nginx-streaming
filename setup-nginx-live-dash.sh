@@ -1,9 +1,9 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install build-essential git
+sudo apt install build-essential git -y
 
-sudo apt install libpcre3-dev libssl-dev zlib1g-dev
+sudo apt install libpcre3-dev libssl-dev zlib1g-dev -y
 cd /tmp
 git clone https://github.com/arut/nginx-rtmp-module.git
 git clone https://github.com/nginx/nginx.git
@@ -67,6 +67,8 @@ cp nginx.conf /usr/local/nginx/conf/nginx.conf
 
 /usr/local/nginx/sbin/nginx
 
-apt install ffmpeg
+apt install ffmpeg -y
+
+wget https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4
 
 ffmpeg  -re -stream_loop -1 -i test.mp4 -loop -1 -vcodec copy -c:a aac -b:a 160k -ar 44100 -flvflags no_duration_filesize -strict -2 -f flv rtmp://127.0.0.1/live/bbb
